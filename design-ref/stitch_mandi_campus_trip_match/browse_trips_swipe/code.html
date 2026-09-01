@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TripMate IITM - Browse Trips</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "secondary": "#785900",
+                        "on-tertiary-fixed-variant": "#2d4384",
+                        "surface-container-high": "#E7E8E9",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-secondary-container": "#6c5000",
+                        "surface": "#f8f9fa",
+                        "tertiary": "#000c33",
+                        "on-primary-fixed-variant": "#2d4384",
+                        "on-primary-fixed": "#00174c",
+                        "on-primary-container": "#7489ce",
+                        "error-container": "#ffdad6",
+                        "primary": "#000c32",
+                        "on-surface": "#191c1d",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary-container": "#011f60",
+                        "surface-tint": "#465b9d",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed-dim": "#fabd00",
+                        "secondary-container": "#fdc003",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "error": "#BA1A1A",
+                        "success": "#2E7D32",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffdf9e",
+                        "surface-variant": "#e1e3e4",
+                        "primary-container": "#001f60",
+                        "tertiary-fixed-dim": "#b5c4ff",
+                        "on-secondary-fixed": "#261a00",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-container": "#7489cf",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#757681",
+                        "on-surface-variant": "#444650",
+                        "on-tertiary-fixed": "#00174d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "inverse-surface": "#2e3132",
+                        "outline-variant": "#c5c6d2",
+                        "on-background": "#191c1d",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-mobile": "1rem",
+                        "stack-xs": "4px",
+                        "gutter": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "base": "8px",
+                        "stack-xl": "48px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Hanken Grotesk"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Ensure specific icons are filled when required by design */
+        .icon-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background h-screen w-screen overflow-hidden flex flex-col font-body-md text-on-background select-none">
+<!-- TopAppBar (From JSON) -->
+<header class="flex justify-between items-center w-full px-margin-mobile py-stack-sm fixed top-0 z-50 bg-surface dark:bg-surface-container shadow-sm h-[60px]">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">travel_explore</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">TripMate IITM</h1>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Filter Bar -->
+<div class="fixed top-[60px] w-full z-40 bg-surface/80 backdrop-blur-md px-margin-mobile py-stack-xs flex gap-stack-sm overflow-x-auto no-scrollbar shadow-[0_4px_12px_rgba(0,12,50,0.02)]">
+<button class="flex items-center gap-1 px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-label-sm font-label-sm text-on-surface whitespace-nowrap shadow-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+            Upcoming Weekend
+        </button>
+<button class="flex items-center gap-1 px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-label-sm font-label-sm text-on-surface whitespace-nowrap shadow-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[16px]">two_wheeler</span>
+            Bike Trip
+        </button>
+<button class="flex items-center gap-1 px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-label-sm font-label-sm text-on-surface whitespace-nowrap shadow-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[16px]">hiking</span>
+            Trekking
+        </button>
+</div>
+<!-- Main Canvas (Swipe Cards) -->
+<main class="flex-1 w-full max-w-md mx-auto relative mt-[110px] mb-[90px] px-margin-mobile">
+<!-- Background/Next Card (Stacked behind) -->
+<div class="absolute inset-x-margin-mobile top-4 bottom-8 rounded-[24px] bg-surface-container-high shadow-sm scale-95 origin-bottom opacity-60"></div>
+<!-- Active Swipe Card -->
+<div class="absolute inset-x-margin-mobile top-0 bottom-4 rounded-[24px] overflow-hidden shadow-[0_12px_32px_rgba(0,12,50,0.15)] bg-surface-container-lowest flex flex-col cursor-grab active:cursor-grabbing transform transition-transform duration-300">
+<!-- 80% Image Area -->
+<div class="relative w-full h-[75%]">
+<img class="w-full h-full object-cover" data-alt="A breathtaking, wide-angle photograph of a rugged Himalayan mountain pass during golden hour. The scene features deep, textured shadows on the rocky terrain and vibrant, warm sunlight illuminating the snow-capped peaks in the distance. The overall mood is adventurous and majestic, perfectly suited for a high-end travel discovery platform. The lighting is natural and dramatic, enhancing the sense of scale and institutional prestige." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr5jNO_yBjmKY8GIf3S1yMQ3-fs9BDGXm_b61cOvfQGcXCiGhEzgoDvuOMkj-dQqAHNHENfjEDJaD8PKrsecAIMIQ1svGxta_Phemu9xc7ZZrhQKLGOS2q_uKZyMgP8io3Ebyos7Q8GaAP2kvRAK1Ez8B7Zzarjd7Je3N_5lj43meVq3HBdVV7-BGrVeXoH1NOOMLSAp9mM0TK9rHMLSGZA1KDPwGTcpTueHfRNnh9xN8KTKJDdLha">
+<!-- Gradient Overlay for smooth transition to info section -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10"></div>
+<!-- Price Tag -->
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-lg shadow-sm">
+<span class="text-label-md font-label-md text-primary">₹1,200</span>
+</div>
+</div>
+<!-- 20% Info Overlay Area (Integrated smoothly) -->
+<div class="relative w-full h-[25%] bg-surface-container-lowest p-stack-md flex flex-col justify-between z-10 -mt-8 rounded-t-[24px]">
+<!-- Organizer Info (Avatar popping up) -->
+<div class="absolute -top-10 left-stack-md flex items-end gap-3">
+<div class="w-14 h-14 rounded-full border-4 border-surface-container-lowest overflow-hidden shadow-sm bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional, candid portrait of a young college student outdoors, wearing a technical climbing jacket. The lighting is soft and natural, suggesting a bright daytime environment. The background is slightly blurred greenery, emphasizing a focus on outdoor activity and leadership. The style is modern, approachable, and high-quality, fitting for a trusted trip organizer on a logistics platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlUcqa8UKHacLZJZvamKQpWAXpXKRm5DqPWAm8AoIOtRpqeEXO3sGQXUO7x0EjZ3Df2vl4dPl0nPeCSnMFjgBr86fuKl1ZeMG6thW9qepbEZu8wJJLSMWyaxTcnApzwbdg1p7-u9kLD453vwrODDWXVFJog13dBW6Zms82gbt6h0KTl2VON7gJYnXw2_ArINoOyZAK8WVzNt-rEnSXyCXj1Z68WKC5qN9MfOt65Z0DE5-PfcTJRQIn">
+</div>
+<div class="mb-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Organized by</p>
+<p class="text-label-md font-label-md text-primary">Rahul Sharma</p>
+</div>
+</div>
+<!-- Destination Details -->
+<div class="mt-4">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-primary tracking-tight">Prashar Lake Trek</h2>
+<div class="flex items-center gap-stack-md mt-1 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="text-body-sm font-body-sm">Oct 14 - 15</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="text-body-sm font-body-sm">4 spots left</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Buttons (Overlaying the bottom of the card) -->
+<div class="absolute bottom-[-10px] left-0 right-0 flex justify-center items-center gap-stack-lg z-20 px-8">
+<!-- Pass Button -->
+<button class="w-16 h-16 rounded-full bg-surface-container-lowest shadow-[0_8px_24px_rgba(0,12,50,0.10)] flex justify-center items-center text-outline hover:bg-surface-variant transition-colors active:scale-90"><span class="material-symbols-outlined text-[32px]">close</span></button>
+<!-- Interested Button -->
+<button class="w-20 h-20 rounded-full bg-primary shadow-[0_12px_32px_rgba(0,12,50,0.25)] flex justify-center items-center text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-90"><span class="material-symbols-outlined text-[40px] icon-filled">favorite</span></button>
+</div>
+</main>
+<!-- BottomNavBar (From JSON - Active Tab: Browse) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile py-stack-sm bg-surface dark:bg-surface-container-low shadow-[0_-4px_12px_rgba(0,12,50,0.05)] rounded-t-xl h-[72px]"><a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm mt-1">Home</span></a><a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined icon-filled">swipe</span><span class="font-label-sm text-label-sm mt-1">Browse</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">add_circle</span><span class="font-label-sm text-label-sm mt-1">Create</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">chat_bubble</span><span class="font-label-sm text-label-sm mt-1">Chats</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">account_circle</span><span class="font-label-sm text-label-sm mt-1">Profile</span></a></nav>
+
+
+</body></html>

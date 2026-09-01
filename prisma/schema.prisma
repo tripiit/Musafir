@@ -1,0 +1,217 @@
+// TripMate IITM data model.
+// SQLite has no enum or array support in Prisma, so status/mode fields are
+// strings validated by the zod schemas in src/lib/validation.ts, and
+// Trip.travelModes is a comma-separated list (see parseModes/serializeModes).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique // always @students.iitmandi.ac.in
+  name      String
+  age       Int?
+  branch    String?
+  batchYear Int?
+  photoUrl  String?
+  bio       String?
+  createdAt DateTime @default(now())
+
+  trips              Trip[]          @relation("Organizer")
+  sessions           Session[]
+  sentRequests       JoinRequest[]   @relation("Requester")
+  receivedRequests   JoinRequest[]   @relation("RequestOrganizer")
+  messages           Message[]
+  browseHistory      BrowseHistory[]
+  notifications      Notification[]  @relation("NotificationRecipient")
+  triggeredNotifications Notification[] @relation("NotificationActor")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+// One row per OTP request. The code is stored hashed so a DB read cannot be
+// replayed as a login.
+model OtpCode {
+  id         String    @id @default(cuid())
+  email      String
+  codeHash   String
+  expiresAt  DateTime
+  attempts   Int       @default(0)
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([email])
+}
+
+model Trip {
+  id          String    @id @default(cuid())
+  organizerId String
+  organizer   User      @relation("Organizer", fields: [organizerId], references: [id], onDelete: Cascade)
+  title       String
+  /// DEPRECATED: superseded by the ordered TripStop list. Nothing reads it.
+  /// Kept nullable only so the migration stays non-destructive.
+  destination String?
+  /// The Plan (see the Plan builder on /trips/new). Duration is DERIVED from
+  /// departureDate -> returnDate and is never stored: one source of truth, so
+  /// it can never contradict the dates. Either date being null means
+  /// "Duration TBD".
+  /// Mapped to the original startDate column so no data moves on migration.
+  departureDate     DateTime? @map("startDate")
+  departureLocation String?
+  returnDate        DateTime?
+  returnLocation    String?
+  /// DEPRECATED legacy columns, kept only so the migration stays non-destructive.
+  /// Duration is derived from departureDate -> returnDate; nothing reads or
+  /// writes these. Drop them with:
+  ///   npx prisma db push --accept-data-loss
+  durationDays      Int?
+  durationTbd       Boolean @default(false)
+  // null groupSizeMax + groupSizeFlexible=true renders as "Flexible"
+  groupSizeMax      Int?
+  groupSizeFlexible Boolean @default(false)
+  travelModes       String // csv of bike|car|cab|bus
+  description       String
+  status            String   @default("open") // open | full | completed | cancelled
+  createdAt         DateTime @default(now())
+
+  images        TripImage[]
+  stops         TripStop[]
+  joinRequests  JoinRequest[]
+  messages      Message[]
+  browseHistory BrowseHistory[]
+  notifications Notification[]
+
+  @@index([organizerId])
+  @@index([status])
+}
+
+/// One stop on a trip's Plan, in visit order. stops[0] is the primary
+/// destination and replaces the old single `destination` field: the timeline
+/// runs departure -> each stop -> return.
+model TripStop {
+  id          String    @id @default(cuid())
+  tripId      String
+  trip        Trip      @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  location    String
+  /// Optional: a stop with no date renders as "Stop N" so the timeline never
+  /// implies precision the organizer did not give.
+  arrivalDate DateTime?
+  position    Int       @default(0)
+
+  @@index([tripId])
+}
+
+model TripImage {
+  id       String @id @default(cuid())
+  tripId   String
+  trip     Trip   @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  url      String
+  alt      String
+  position Int    @default(0)
+
+  @@index([tripId])
+}
+
+/// A request to join a trip, LinkedIn-connect style. Swiping right or pressing
+/// "Request to Join" creates one as `pending`; it does NOT open a chat.
+/// An **accepted** request IS the chat thread — hence the thread state
+/// (nudge banner, read receipts) living here and Message.joinRequestId
+/// pointing at it. Declining leaves the row for history but never opens chat.
+model JoinRequest {
+  id          String    @id @default(cuid())
+  tripId      String
+  trip        Trip      @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  requesterId String
+  requester   User      @relation("Requester", fields: [requesterId], references: [id], onDelete: Cascade)
+  organizerId String
+  organizer   User      @relation("RequestOrganizer", fields: [organizerId], references: [id], onDelete: Cascade)
+  status      String    @default("pending") // pending | accepted | declined
+  /// Optional short note from the requester, like a LinkedIn connection note.
+  message     String?
+  createdAt   DateTime  @default(now())
+  respondedAt DateTime?
+
+  // Thread state, meaningful only once status is "accepted".
+  nudgeState          String    @default("pending") // pending | dismissed | suggested
+  organizerLastReadAt DateTime?
+  requesterLastReadAt DateTime?
+  updatedAt           DateTime  @updatedAt
+
+  messages Message[]
+
+  @@unique([tripId, requesterId])
+  @@index([organizerId, status])
+  @@index([requesterId, status])
+}
+
+model Message {
+  id String @id @default(cuid())
+  /// The thread this belongs to: an accepted JoinRequest. Chat access is tied
+  /// to that acceptance, so there is no way to message without one.
+  joinRequestId String
+  joinRequest   JoinRequest @relation(fields: [joinRequestId], references: [id], onDelete: Cascade)
+  tripId        String
+  trip          Trip        @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  senderId      String
+  sender        User        @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  content       String
+  kind          String      @default("text") // text | meetup | system
+  createdAt     DateTime    @default(now())
+
+  @@index([joinRequestId])
+}
+
+// Every trip a student has encountered in Browse. Swiping never destroys a
+// trip, it only moves it out of the live deck and into /browse/history.
+// 'viewed' means they opened the detail page without deciding either way.
+model BrowseHistory {
+  id       String   @id @default(cuid())
+  userId   String
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tripId   String
+  trip     Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  decision String // passed | interested | viewed
+  seenAt   DateTime @default(now())
+
+  @@unique([userId, tripId])
+  @@index([userId])
+}
+
+/// Feeds the notification bell in the top app bar. This is the only channel
+/// that reaches someone with a *pending* request, who has no chat thread yet.
+model Notification {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation("NotificationRecipient", fields: [userId], references: [id], onDelete: Cascade)
+  /// join_request_received | join_request_accepted | join_request_declined
+  /// | trip_updated | trip_cancelled
+  type    String
+  title   String
+  body    String
+  /// Where tapping the notification should take the recipient.
+  href    String
+  actorId String?
+  actor   User?     @relation("NotificationActor", fields: [actorId], references: [id], onDelete: SetNull)
+  tripId  String?
+  trip    Trip?     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  readAt  DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId, readAt])
+  @@index([userId, createdAt])
+}

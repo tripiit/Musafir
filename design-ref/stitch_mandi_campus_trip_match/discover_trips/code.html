@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>IITM Share - Browse Trips</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cc7457",
+                        "secondary-container": "#fdc003",
+                        "deep-navy": "#001F60",
+                        "secondary": "#785900",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444650",
+                        "secondary-fixed": "#ffdf9e",
+                        "ink-black": "#212529",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#6c5000",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-fixed": "#390b00",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#77321a",
+                        "primary-container": "#001f60",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "tertiary": "#250500",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7489ce",
+                        "snow-white": "#FFFFFF",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#00174c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#491100",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#000c32",
+                        "mountain-amber": "#FFC107",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#465b9d",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#2d4384",
+                        "asphalt-gray": "#6C757D",
+                        "surface-variant": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Open Sans"],
+                        "label-sm": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { overscroll-behavior-y: none; }
+        .swipe-card {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            will-change: transform, opacity;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen overflow-hidden flex flex-col font-body-md relative">
+<!-- Top Navigation (Desktop Only) -->
+<header class="hidden md:flex bg-surface dark:bg-on-surface shadow-sm flex justify-between items-center w-full px-margin-mobile h-16 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-deep-navy dark:text-primary-fixed" data-icon="menu">menu</span>
+<span class="font-display-lg text-headline-md font-bold text-deep-navy dark:text-primary-fixed">IITM Share</span>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-md font-label-md text-label-md" href="#">Home</a>
+<a class="text-deep-navy font-bold font-label-md text-label-md" href="#">Trips</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-md font-label-md text-label-md" href="#">Profile</a>
+</nav>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex justify-center items-center p-4 md:p-margin-desktop md:pt-24 pb-24 relative overflow-hidden w-full max-w-[500px] mx-auto h-full">
+<!-- Swipeable Card Stack Container -->
+<div class="relative w-full h-[80vh] md:h-[70vh] rounded-xl shadow-lg bg-surface-container-lowest flex flex-col overflow-hidden swipe-card" id="active-card">
+<!-- Primary Image -->
+<div class="flex-1 w-full bg-cover bg-center relative" data-alt="A breathtaking, cinematic shot of the winding Himalayan roads leading up to IIT Mandi during golden hour. The sky is a gradient of warm amber and deep navy, reflecting the design system colors. A subtle, modern UI aesthetic overlays the raw natural beauty. High contrast, sharp focus, 8k resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMGwIfiOgznipF49q6HK64IbkTukrhFJJpOhrf3IOnEXNkAzyTyyX7Imv0AtHvotUf2jAx87_O8W7WBrzBDPOD5Tr9v04BkcoixD2-Bs8mRrkAqkOkG3g7vQSTIxp4d7bhd9pgyx0OpXyARK2T8d3AcWMm8blWrDbeyVHcw-KPOJG-zHTAGmSD60Ud1AZiRyc1ow7HoyPY1F-uYgRtuXdRLjdjUovCLOD7hQbzM9o86sMPxj9ol-qW')">
+<!-- Chips Overlay -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-mountain-amber bg-opacity-90 text-ink-black px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Leaving Soon</span>
+<span class="bg-snow-white bg-opacity-90 text-deep-navy px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">2 Seats Left</span>
+</div>
+</div>
+<!-- Bottom 20% Metadata Overlay -->
+<div class="bg-snow-white p-4 flex flex-col gap-stack-sm relative shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-10 border-t border-surface-variant">
+<div class="flex items-center gap-4">
+<!-- Profile Picture -->
+<img class="w-16 h-16 rounded-full object-cover border-2 border-deep-navy shadow-sm" data-alt="A close-up, professional yet approachable portrait of an Indian engineering student at IIT Mandi, wearing casual outdoor gear. The background is slightly blurred with hints of pine trees and mountains. Warm, natural lighting, high quality, optimistic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbM5wNbp9mi0Mvcp9bT_tob1Jp7JZAUh3URhVvU-NVRUhTixPP0Oj9hcOXs_rRfF73U53ZIH182yGsws57m5B7FDKFPwVTJWZjVsgA-DhBri5tWtlkvWuG7cZ2PGanuNToU3u5MVYCTzJQvQI2TyCA2OcN5rJ0P-iQiTTGVQGsDXVXBLVFC9xu2ZqkftkacCfjC40_JXRXM4IUWgC5u2zze8M5n8tzwEYuZd3rWpBnf15dfKgeiyxT"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline-md text-headline-md-mobile text-ink-black m-0 p-0 leading-tight">Rahul Sharma, 21</h2>
+<p class="font-body-md text-body-md text-asphalt-gray m-0 p-0">B.Tech 3rd Year</p>
+</div>
+<!-- Transport Mode Icon -->
+<div class="bg-surface-container-low p-2 rounded-full text-deep-navy">
+<span class="material-symbols-outlined text-[28px]" data-icon="directions_car">directions_car</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-col gap-stack-sm border-t border-surface-variant pt-2">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-asphalt-gray uppercase tracking-wider text-[10px]">Route</span>
+<span class="font-headline-md text-[16px] text-ink-black">IIT Mandi → Chandigarh</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-asphalt-gray uppercase tracking-wider text-[10px]">Duration</span>
+<span class="font-body-md text-body-md text-ink-black font-semibold">5.5 Hours</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-asphalt-gray uppercase tracking-wider text-[10px]">Date</span>
+<span class="font-body-md text-body-md text-ink-black">Today, 2:00 PM</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-stack-md flex gap-2 w-full">
+<button class="flex-1 bg-surface-container border border-outline hover:bg-surface-variant text-ink-black font-label-md text-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span> Pass
+                    </button>
+<button class="flex-[2] bg-mountain-amber hover:bg-secondary-fixed text-ink-black font-label-md text-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="check">check</span> Request to Join
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden bg-snow-white dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-6 py-2 scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="directions_car">directions_car</span>
+<span class="font-label-sm text-label-sm font-bold">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Extremely basic swipe interaction mockup for visual demonstration
+        const card = document.getElementById('active-card');
+        let startX = 0;
+        let currentX = 0;
+
+        card.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('touchmove', (e) => {
+            currentX = e.touches[0].clientX - startX;
+            // Limit the drag distance slightly for visual feel
+            card.style.transform = `translateX(${currentX * 0.5}px) rotate(${currentX * 0.05}deg)`;
+            
+            // Optional opacity change based on drag direction
+            if(Math.abs(currentX) > 50) {
+                 // visual hint but keep simple
+            }
+        });
+
+        card.addEventListener('touchend', (e) => {
+            card.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+            if (Math.abs(currentX) > 100) {
+                // Swipe out
+                card.style.transform = `translateX(${currentX > 0 ? window.innerWidth : -window.innerWidth}px) rotate(${currentX > 0 ? 20 : -20}deg)`;
+                card.style.opacity = '0';
+                
+                // Reset for demo purposes
+                setTimeout(() => {
+                    card.style.transition = 'none';
+                    card.style.transform = 'translateX(0) rotate(0)';
+                    card.style.opacity = '1';
+                }, 300);
+            } else {
+                // Snap back
+                card.style.transform = 'translateX(0) rotate(0)';
+            }
+            currentX = 0;
+        });
+    </script>
+</body></html>

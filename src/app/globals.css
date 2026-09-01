@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/*
+ * Peak Passage IITM design tokens.
+ * Source: design-ref/stitch_mandi_campus_trip_match/peak_passage_iitm/DESIGN.md
+ * Ported to Tailwind v4 @theme (the scaffold shipped Tailwind v4, which replaces
+ * tailwind.config.ts with CSS-native tokens). Token names are unchanged.
+ */
+@theme {
+  /* --- Colors --- */
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+  --color-surface: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-variant: #e1e3e4;
+  --color-surface-tint: #465b9d;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #444650;
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+
+  --color-outline: #757681;
+  --color-outline-variant: #c5c6d2;
+
+  --color-primary: #000c32;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #001f60;
+  --color-on-primary-container: #7489ce;
+  --color-inverse-primary: #b4c5ff;
+  --color-primary-fixed: #dbe1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-on-primary-fixed: #00174c;
+  --color-on-primary-fixed-variant: #2d4384;
+
+  --color-secondary: #785900;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdc003;
+  --color-on-secondary-container: #6c5000;
+  --color-secondary-fixed: #ffdf9e;
+  --color-secondary-fixed-dim: #fabd00;
+  --color-on-secondary-fixed: #261a00;
+  --color-on-secondary-fixed-variant: #5b4300;
+
+  --color-tertiary: #000c33;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #011f60;
+  --color-on-tertiary-container: #7489cf;
+  --color-tertiary-fixed: #dbe1ff;
+  --color-tertiary-fixed-dim: #b5c4ff;
+  --color-on-tertiary-fixed: #00174d;
+  --color-on-tertiary-fixed-variant: #2d4384;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-success: #2e7d32;
+
+  /* --- Typography --- */
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-lg-mobile: 24px;
+  --text-headline-lg-mobile--line-height: 32px;
+  --text-headline-lg-mobile--font-weight: 700;
+
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--letter-spacing: 0.02em;
+  --text-label-md--font-weight: 600;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 700;
+
+  /* --- Spacing (8px rhythm) --- */
+  --spacing-base: 8px;
+  --spacing-gutter: 1rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-margin-desktop: 2.5rem;
+  --spacing-stack-xs: 4px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
+  --spacing-stack-xl: 48px;
+
+  /* --- Radii ---
+   * Tailwind v4 has no per-namespace DEFAULT, so the export's bare `rounded`
+   * (0.5rem, used on buttons/inputs) becomes `rounded-md`. */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* --- Elevation --- */
+  --shadow-card: 0 4px 12px rgba(0, 12, 50, 0.05);
+  --shadow-card-hover: 0 8px 24px rgba(0, 12, 50, 0.1);
+  --shadow-modal: 0 12px 32px rgba(0, 12, 50, 0.15);
+  --shadow-nav: 0 -4px 12px rgba(0, 12, 50, 0.05);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Horizontal scrollers in the export hide their scrollbar (create-trip image
+   strip, browse filter bar, chat list). */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Decorative topography used behind the auth screens. */
+.mountain-bg {
+  background-color: var(--color-background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23e1e3e4' fill-opacity='0.5' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,165.3C960,149,1056,171,1152,192C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%23d9dadb' fill-opacity='0.4' d='M0,96L60,117.3C120,139,240,181,360,186.7C480,192,600,160,720,149.3C840,139,960,149,1080,170.7C1200,192,1320,224,1380,240L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}

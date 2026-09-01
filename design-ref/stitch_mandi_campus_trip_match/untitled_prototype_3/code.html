@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IITM Share - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cc7457",
+                        "secondary-container": "#fdc003",
+                        "deep-navy": "#001F60",
+                        "secondary": "#785900",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444650",
+                        "secondary-fixed": "#ffdf9e",
+                        "ink-black": "#212529",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#6c5000",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-fixed": "#390b00",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#77321a",
+                        "primary-container": "#001f60",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "tertiary": "#250500",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7489ce",
+                        "snow-white": "#FFFFFF",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#00174c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#491100",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#000c32",
+                        "mountain-amber": "#FFC107",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#465b9d",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#2d4384",
+                        "asphalt-gray": "#6C757D",
+                        "surface-variant": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Open Sans"],
+                        "label-sm": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .mountain-bg {
+            background-color: #f8f9fa;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23e1e3e4' fill-opacity='0.5' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,165.3C960,149,1056,171,1152,192C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%23d9dadb' fill-opacity='0.4' d='M0,96L60,117.3C120,139,240,181,360,186.7C480,192,600,160,720,149.3C840,139,960,149,1080,170.7C1200,192,1320,224,1380,240L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex items-center justify-center mountain-bg p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- Subtle decorative elements -->
+<div class="absolute top-10 left-10 w-24 h-24 bg-primary-fixed-dim rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-pulse"></div>
+<div class="absolute bottom-20 right-10 w-32 h-32 bg-secondary-fixed rounded-full mix-blend-multiply filter blur-2xl opacity-40"></div>
+<main class="w-full max-w-md z-10">
+<!-- Main Card -->
+<div class="bg-snow-white rounded-xl soft-shadow p-stack-lg border border-surface-variant relative overflow-hidden group">
+<!-- Header Section -->
+<div class="text-center mb-stack-lg">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-primary-container text-on-primary-container rounded-full mb-stack-md transform group-hover:scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl" data-icon="directions_car">directions_car</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-deep-navy mb-stack-sm tracking-tight">IITM Share</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Connect with fellow campus travelers</p>
+</div>
+<!-- Form Section -->
+<form action="#" class="space-y-stack-md" method="POST" onsubmit="event.preventDefault(); this.querySelector('button').classList.add('scale-95'); setTimeout(() =&gt; this.querySelector('button').classList.remove('scale-95'), 150);">
+<div class="space-y-stack-sm">
+<label class="font-label-md text-label-md text-on-surface block" for="email">Institute Email</label>
+<div class="relative group focus-within:ring-2 ring-deep-navy/20 rounded-lg transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+</div>
+<input autocomplete="username" class="block w-full pl-10 pr-[140px] py-3 bg-surface border border-outline-variant rounded-lg focus:border-deep-navy focus:ring-1 focus:ring-deep-navy focus:bg-snow-white transition-colors duration-200 font-body-md text-body-md text-on-surface placeholder-outline-variant" id="email" name="email" placeholder="b20123" required="" type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<span class="font-body-md text-[14px] text-asphalt-gray select-none">@iitmandi.ac.in</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-asphalt-gray flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+                        Use your institute email only
+                    </p>
+</div>
+<!-- Spacer -->
+<div class="h-2"></div>
+<button class="w-full bg-deep-navy text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-primary-fixed-variant hover:shadow-md transition-all duration-200 flex justify-center items-center gap-2 transform active:scale-95" type="submit">
+<span>Login / Create Account</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Bottom decorative line -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-deep-navy via-surface-tint to-mountain-amber"></div>
+</div>
+<!-- Footer Links -->
+<div class="mt-stack-lg text-center space-y-stack-sm">
+<p class="font-label-sm text-label-sm text-asphalt-gray">
+                By continuing, you agree to our 
+                <a class="text-deep-navy hover:underline underline-offset-2" href="#">Terms of Service</a> &amp; 
+                <a class="text-deep-navy hover:underline underline-offset-2" href="#">Privacy Policy</a>
+</p>
+</div>
+</main>
+</body></html>

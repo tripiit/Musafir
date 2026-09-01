@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Trip Details &amp; User Profile - IITM Share</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cc7457",
+                        "secondary-container": "#fdc003",
+                        "deep-navy": "#001F60",
+                        "secondary": "#785900",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444650",
+                        "secondary-fixed": "#ffdf9e",
+                        "ink-black": "#212529",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#6c5000",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-fixed": "#390b00",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#77321a",
+                        "primary-container": "#001f60",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "tertiary": "#250500",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7489ce",
+                        "snow-white": "#FFFFFF",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#00174c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#491100",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#000c32",
+                        "mountain-amber": "#FFC107",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#465b9d",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#2d4384",
+                        "asphalt-gray": "#6C757D",
+                        "surface-variant": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Open Sans"],
+                        "label-sm": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .tactile-card {
+            box-shadow: 0 4px 20px -2px rgba(0, 31, 96, 0.08), 0 0 3px rgba(0, 31, 96, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tactile-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px -2px rgba(0, 31, 96, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface shadow-sm docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-[1200px] mx-auto">
+<button aria-label="Go back" class="text-deep-navy dark:text-primary-fixed hover:bg-surface-container-low transition-colors rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-headline-md font-bold text-deep-navy dark:text-primary-fixed">Trip Details</h1>
+<button aria-label="Share" class="text-deep-navy dark:text-primary-fixed hover:bg-surface-container-low transition-colors rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg space-y-stack-lg">
+<!-- Image Gallery -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-base rounded-xl overflow-hidden shadow-sm h-64 md:h-80">
+<div class="md:col-span-2 relative h-full">
+<img alt="Main trip image" class="w-full h-full object-cover" data-alt="A scenic view of a winding mountain road in the Himalayas, bathed in soft morning light. A dependable SUV is navigating the curve. The scene conveys a sense of secure yet spirited adventure, aligning with a modern tactile aesthetic. High clarity and dependable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9IG8GA5OUeZBrOUx7v0uvZxzUKEcquz4MVqU2fCq0aeomc5z8vZABcw2oNCArvnWT52-E4QXm-PFDPLUqYBkzNGfNYhv22GFWskspejLhnagXt3L-BDfB3Qux-t6JDBie49kkCHPJGx_Iqb7KV_ZQghYjiW_rzhwV_FMbNofTG2x6s4J5fQKIAqu_qKlMoYR8v7-HkzYrfvBlnFUhWO5K23mz03TioBEWuaSeliI2YVha4DB1MZt0">
+</div>
+<div class="hidden md:grid grid-rows-2 gap-base h-full">
+<div class="relative h-full">
+<img alt="Secondary trip image" class="w-full h-full object-cover" data-alt="A close-up shot of hiking boots resting near a car tire on a gravel path, with majestic snowy peaks in the blurred background. The lighting is bright and clear, highlighting the rugged textures and adventurous spirit of the journey. Dependable and tactile visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2fBW33zv5t4XOCmjwnAvWF7RJ4B2aZ8ImsfZLl4m5fWbzL_gqFOo1jajWBynz2kxsqnnHjwwO66c8YnFSpFPIS4muCztBoYvlgXDz0C1tk_lBriPOJ4D_NdvY9YXeHF6pcANosrb9m_R2AfenE68gJ1Q9Ocji36HIUi5cUfhBa4nSyPOS_9KtP_Qcc6ElrugVZagRHTdusXoi1WjKXfaliBE7QDbKlt5gEwi80m-U9ZTs7fcwiRgm">
+</div>
+<div class="relative h-full">
+<img alt="Tertiary trip image" class="w-full h-full object-cover" data-alt="A view from inside a vehicle looking out over a deep valley in Himachal Pradesh. The dashboard is subtly visible, framing the landscape. The atmosphere is calm and reliable, emphasizing the safety and coordination of travel in mountainous regions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChuq0lIhlS40ZwqAQ4dXeu9KOb_LPh7K_JsSi8u2ZIppbwdw_bU4LIxTd1whLXAbiJDdttG3LNdq8Mwiu9YeKjDzIE2H78nxe5EjUXU9X7cyTxBB3xbJmTM9KH6zUCfXgSCN8MpVSx_7NLq1ugCvvQBgNZ7uj0iQxx9I8ex7QlxsHQn1LMY4dRHccX3Zd7sj3Gr6FQCrbPv9PlSOTrjqdqf6VqHMnEx_dJqsFKKyDzikJQRZ6EkwdQ">
+</div>
+</div>
+</section>
+<!-- Main Details Canvas -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg">
+<!-- Left Column: Trip Info -->
+<div class="md:col-span-2 space-y-stack-lg">
+<!-- Route & Quick Stats -->
+<div class="tactile-card bg-snow-white rounded-xl p-gutter border border-surface-container-highest">
+<div class="flex items-start justify-between mb-stack-md">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-navy flex items-center gap-2 font-bold">
+                                IIT Mandi <span class="material-symbols-outlined text-outline" data-icon="arrow_forward">arrow_forward</span> Chandigarh
+                            </h2>
+<p class="font-body-md text-body-md text-asphalt-gray mt-1">Friday, Oct 27 • 06:00 AM</p>
+</div>
+<div class="bg-mountain-amber/10 text-secondary-container px-3 py-1 rounded-full border border-mountain-amber/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_taxi">local_taxi</span>
+<span class="font-label-md text-label-md font-bold text-ink-black">SUV</span>
+</div>
+</div>
+<div class="flex border-t border-surface-variant pt-stack-md gap-stack-lg">
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-asphalt-gray">Price per seat</p>
+<p class="font-headline-md text-headline-md text-ink-black">₹650</p>
+</div>
+<div class="flex-1 border-l border-surface-variant pl-4">
+<p class="font-label-sm text-label-sm text-asphalt-gray">Seats left</p>
+<p class="font-headline-md text-headline-md text-on-tertiary-container">2 <span class="font-body-md text-body-md text-asphalt-gray">/ 4</span></p>
+</div>
+</div>
+</div>
+<!-- Itinerary -->
+<div class="tactile-card bg-snow-white rounded-xl p-gutter border border-surface-container-highest">
+<h3 class="font-headline-md text-headline-md text-deep-navy mb-stack-md">Itinerary</h3>
+<div class="relative pl-6 space-y-stack-lg before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-variant">
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-3 h-3 rounded-full bg-deep-navy border-2 border-snow-white shadow-sm"></div>
+<h4 class="font-label-md text-label-md text-ink-black">06:00 AM - Departure</h4>
+<p class="font-body-md text-body-md text-asphalt-gray">North Campus Main Gate, IIT Mandi</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-3 h-3 rounded-full bg-surface-variant border-2 border-snow-white"></div>
+<h4 class="font-label-md text-label-md text-ink-black">08:30 AM - Pitstop</h4>
+<p class="font-body-md text-body-md text-asphalt-gray">Sundernagar Highway Dhaba (20 mins)</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-3 h-3 rounded-full bg-mountain-amber border-2 border-snow-white shadow-sm"></div>
+<h4 class="font-label-md text-label-md text-ink-black">01:00 PM - Estimated Arrival</h4>
+<p class="font-body-md text-body-md text-asphalt-gray">Sector 43 ISBT, Chandigarh</p>
+</div>
+</div>
+</div>
+<!-- Preferences -->
+<div class="tactile-card bg-snow-white rounded-xl p-gutter border border-surface-container-highest">
+<h3 class="font-headline-md text-headline-md text-deep-navy mb-stack-md">Preferences</h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-mountain-amber/10 text-ink-black px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 border border-mountain-amber/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="work">work</span> Medium Luggage
+                        </span>
+<span class="bg-mountain-amber/10 text-ink-black px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 border border-mountain-amber/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="music_note">music_note</span> Music OK
+                        </span>
+<span class="bg-surface-container-low text-asphalt-gray px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 border border-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="smoke_free">smoke_free</span> No Smoking
+                        </span>
+</div>
+</div>
+</div>
+<!-- Right Column: Host Profile & Actions -->
+<div class="space-y-stack-lg">
+<!-- Host Profile -->
+<div class="tactile-card bg-snow-white rounded-xl p-gutter border border-surface-container-highest flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-variant mb-stack-md overflow-hidden border-2 border-primary-container shadow-sm relative">
+<img alt="Host avatar" class="w-full h-full object-cover" data-alt="A bright and friendly headshot of an Indian college student wearing a casual jacket, suitable for mountain weather. The background is slightly blurred showing campus architecture. Dependable and approachable mood, modern tactile style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYkKpMz1ZVy_w9nhLHq5kQrFowBrPS7u64olj_yY9DY1Zy1JkuayszzWUxW6WwMjrc7DKwSEGeZXZlzF_oUdanS_87tMDGmuQ-3It16RP6wJJbpCIDZVdaPwvvUED5HgOyc6iASIjX27ADybew50mcm3WarIiuPTfF6SaO2UHsTbYpva5ktfqLL7whQKd5YMR3dNk30WB-XLrAQDZDK6mTFvpm3ML5zqkgZHE_L2B6BDMTviyxlNpZ">
+</div>
+<h3 class="font-headline-md text-headline-md text-deep-navy">Rahul Sharma</h3>
+<p class="font-label-sm text-label-sm text-asphalt-gray mb-stack-md">B.Tech 3rd Year • ★ 4.8 (12 trips)</p>
+<p class="font-body-md text-body-md text-ink-black text-sm mb-stack-md">Experienced mountain driver. I usually travel home on long weekends. Safe and punctual.</p>
+<div class="w-full border-t border-surface-variant pt-stack-md mt-stack-sm text-left">
+<h4 class="font-label-md text-label-md text-deep-navy mb-2">Previous Trips</h4>
+<ul class="font-body-md text-body-md text-sm text-asphalt-gray space-y-1">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-surface-tint" data-icon="check_circle">check_circle</span> Mandi → Delhi (Sept 2023)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-surface-tint" data-icon="check_circle">check_circle</span> Mandi → Chandigarh (Aug 2023)</li>
+</ul>
+</div>
+</div>
+<!-- Coordination Tip -->
+<div class="bg-primary-fixed/30 border border-primary-fixed-dim rounded-lg p-4 flex gap-3 shadow-sm">
+<span class="material-symbols-outlined text-deep-navy shrink-0" data-icon="forum">forum</span>
+<p class="font-body-md text-body-md text-sm text-on-primary-fixed-variant">
+<strong>Suggestion:</strong> Meet in person at the North Campus for better coordination.
+                    </p>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-mountain-amber hover:bg-secondary-fixed-dim text-ink-black font-label-md text-label-md py-3 rounded-lg shadow-sm transition-all tactile-card">
+                    Book a Seat
+                </button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Chat) -->
+<button class="fixed bottom-20 md:bottom-8 right-margin-mobile md:right-margin-desktop w-14 h-14 bg-deep-navy text-snow-white rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform z-50 focus:outline-none focus:ring-2 focus:ring-primary-fixed focus:ring-offset-2">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+
+
+</body></html>

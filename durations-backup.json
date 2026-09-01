@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cmt3x8fir00049kln6mrozsyn",
+    "title": "Prashar Lake Trek",
+    "startDate": "2026-08-28T00:30:00.000Z",
+    "durationDays": 2,
+    "durationTbd": false
+  },
+  {
+    "id": "cmt3x8fiz00099klnf0100m32",
+    "title": "Triund Ridge Overnighter",
+    "startDate": "2026-09-04T00:30:00.000Z",
+    "durationDays": 2,
+    "durationTbd": false
+  },
+  {
+    "id": "cmt3x8fj7000d9kln0o4o712s",
+    "title": "Bir Billing Weekend",
+    "startDate": "2026-09-11T00:30:00.000Z",
+    "durationDays": 3,
+    "durationTbd": false
+  },
+  {
+    "id": "cmt3x8fjf000h9klntz7zvej2",
+    "title": "Spiti Valley Circuit",
+    "startDate": "2026-09-25T00:30:00.000Z",
+    "durationDays": 7,
+    "durationTbd": false
+  },
+  {
+    "id": "cmt3x8fjm000m9klne1rykr8r",
+    "title": "Kasol and Kheerganga",
+    "startDate": "2026-08-31T00:30:00.000Z",
+    "durationDays": null,
+    "durationTbd": true
+  },
+  {
+    "id": "cmt3x8fju000q9klnam9xfsh5",
+    "title": "Chandigarh Airport Run",
+    "startDate": "2026-08-08T00:30:00.000Z",
+    "durationDays": 1,
+    "durationTbd": false
+  },
+  {
+    "id": "cmt3xbkqy0008tslnemqm0k5i",
+    "title": "wqwdt4",
+    "startDate": null,
+    "durationDays": null,
+    "durationTbd": true
+  }
+]

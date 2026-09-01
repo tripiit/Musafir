@@ -1,0 +1,351 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Post a Trip - IITM Share</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#cc7457",
+                      "secondary-container": "#fdc003",
+                      "deep-navy": "#001F60",
+                      "secondary": "#785900",
+                      "outline": "#757681",
+                      "tertiary-fixed": "#ffdbd0",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#444650",
+                      "secondary-fixed": "#ffdf9e",
+                      "ink-black": "#212529",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#6c5000",
+                      "inverse-primary": "#b4c5ff",
+                      "on-tertiary-fixed": "#390b00",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed-variant": "#5b4300",
+                      "on-tertiary-fixed-variant": "#77321a",
+                      "primary-container": "#001f60",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb59e",
+                      "surface-container-low": "#f3f4f5",
+                      "on-secondary-fixed": "#261a00",
+                      "background": "#f8f9fa",
+                      "on-error": "#ffffff",
+                      "tertiary": "#250500",
+                      "outline-variant": "#c5c6d2",
+                      "inverse-surface": "#2e3132",
+                      "secondary-fixed-dim": "#fabd00",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#7489ce",
+                      "snow-white": "#FFFFFF",
+                      "surface-bright": "#f8f9fa",
+                      "surface-container-high": "#e7e8e9",
+                      "on-primary-fixed": "#00174c",
+                      "inverse-on-surface": "#f0f1f2",
+                      "primary-fixed": "#dbe1ff",
+                      "tertiary-container": "#491100",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "primary": "#000c32",
+                      "mountain-amber": "#FFC107",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#465b9d",
+                      "error": "#ba1a1a",
+                      "surface-container": "#edeeef",
+                      "surface": "#f8f9fa",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "surface-dim": "#d9dadb",
+                      "on-primary-fixed-variant": "#2d4384",
+                      "asphalt-gray": "#6C757D",
+                      "surface-variant": "#e1e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px",
+                      "stack-lg": "24px",
+                      "stack-sm": "4px",
+                      "stack-md": "12px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-md": [
+                              "Open Sans"
+                      ],
+                      "headline-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Open Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "label-md": [
+                              "Open Sans"
+                      ],
+                      "label-sm": [
+                              "Open Sans"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .image-upload-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .image-upload-card:active {
+            transform: scale(0.98);
+        }
+        
+        .mode-selector input:checked + div {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-color: theme('colors.primary-container');
+        }
+        
+        .mode-selector input:checked + div .material-symbols-outlined {
+            color: theme('colors.on-primary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-[100px] md:pb-0 md:pt-20">
+<!-- TopAppBar (Web & Tablet) -->
+<header class="hidden md:flex bg-surface dark:bg-on-surface shadow-sm w-full fixed top-0 z-50 px-margin-desktop h-16 justify-between items-center transition-all duration-300">
+<div class="flex items-center gap-gutter">
+<button class="text-deep-navy dark:text-primary-fixed hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-md font-bold text-deep-navy dark:text-primary-fixed tracking-tight">IITM Share</h1>
+</div>
+<nav class="flex gap-gutter">
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors px-4 py-2 rounded-lg" href="#">Home</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors px-4 py-2 rounded-lg" href="#">Trips</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors px-4 py-2 rounded-lg" href="#">Profile</a>
+</nav>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="flex md:hidden bg-surface dark:bg-on-surface shadow-sm w-full fixed top-0 z-50 px-margin-mobile h-16 justify-between items-center transition-all duration-300">
+<button class="text-deep-navy dark:text-primary-fixed hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-headline-md-mobile font-bold text-deep-navy dark:text-primary-fixed tracking-tight">Post Trip</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-24 md:pt-12 pb-12 w-full">
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-navy mb-stack-sm">Create New Trip</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Fill in the details to find travel buddies for your next Himalayan adventure.</p>
+</div>
+<form class="space-y-stack-lg bg-snow-white p-gutter md:p-stack-lg rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-surface-container-highest">
+<!-- 1. Image Upload -->
+<section class="space-y-stack-sm">
+<label class="font-label-md text-label-md text-ink-black block">Trip Images (Optional)</label>
+<div class="flex overflow-x-auto gap-stack-md pb-2 no-scrollbar snap-x">
+<!-- Upload Button -->
+<label class="image-upload-card snap-start shrink-0 w-32 h-32 md:w-40 md:h-40 border-2 border-dashed border-outline-variant rounded-lg flex flex-col items-center justify-center cursor-pointer bg-surface hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<input accept="image/*" class="hidden" multiple="" type="file">
+<span class="material-symbols-outlined text-[32px] mb-2 text-primary-container">add_a_photo</span>
+<span class="font-label-sm text-label-sm">Add Photos</span>
+</label>
+<!-- Placeholder Images (Simulation of uploaded state) -->
+<div class="snap-start shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden relative group shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A cinematic, wide-angle shot of a majestic Himalayan mountain range at dawn. The snow-capped peaks catch the first golden rays of the sun, creating a warm contrast against the deep blue, clear sky. In the foreground, a rugged, winding dirt road leads towards the mountains, hinting at an adventurous journey. The lighting is soft and directional, emphasizing the texture of the rocks and snow. The overall mood is inspiring, expansive, and adventurous, perfectly suited for a travel application interface in a light, modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCciur5JEeZlugAzQlZQPq2jJvgILQuDYX1woNFsdGOBD4iBwZ3pgGNxJ2UZ8STK2ClCnoSeTI85ys6EzfmTOs-zU4s6qhxKmJ5MWvd3ToGdGxP8tR8j1tOdcwpytKRgqRW675dZdRnZGZW3hMStWfyST6htBzrSY2dWQPlJoVKLXaNXGTD8Y1_1-nwaak2ytqTQezPvhgOMmjhozE62kEUEf8HewAiIdFlT30l8Rc9qrXBNuOKnozU">
+<button class="absolute top-2 right-2 bg-surface/80 backdrop-blur text-error rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Upload up to 4 images to showcase the destination.</p>
+</section>
+<!-- 2. Trip Name & Destination -->
+<section class="space-y-stack-md">
+<div>
+<label class="font-label-md text-label-md text-ink-black block mb-stack-sm" for="trip-name">Trip Title</label>
+<input class="w-full bg-surface border border-surface-dim rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-deep-navy focus:ring-1 focus:ring-deep-navy transition-colors placeholder:text-outline" id="trip-name" placeholder="e.g., Weekend trek to Prashar Lake" type="text">
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- 3. Group Size -->
+<section>
+<label class="font-label-md text-label-md text-ink-black block mb-stack-sm">Group Size Required</label>
+<div class="flex items-center justify-between bg-surface border border-surface-dim rounded-lg p-2">
+<button class="w-10 h-10 rounded-md bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors active:scale-95" onclick="document.getElementById('group-size').stepDown()" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<input class="w-16 text-center bg-transparent border-none font-headline-md text-headline-md text-deep-navy focus:ring-0 p-0 m-0" id="group-size" max="10" min="1" type="number" value="2">
+<button class="w-10 h-10 rounded-md bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors active:scale-95" onclick="document.getElementById('group-size').stepUp()" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</section>
+<!-- 4. Duration -->
+<section>
+<label class="font-label-md text-label-md text-ink-black block mb-stack-sm">Duration (Days)</label>
+<div class="flex flex-col gap-2">
+<input class="w-full bg-surface border border-surface-dim rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-deep-navy focus:ring-1 focus:ring-deep-navy transition-colors" id="duration-days" min="1" placeholder="e.g., 2" type="number">
+<label class="flex items-center gap-2 cursor-pointer mt-1">
+<input class="w-4 h-4 rounded text-deep-navy border-outline focus:ring-deep-navy focus:ring-offset-surface" type="checkbox">
+<span class="font-label-sm text-label-sm text-on-surface-variant">To be decided</span>
+</label>
+</div>
+</section>
+</div>
+<!-- 5. Mode of Travel -->
+<section>
+<label class="font-label-md text-label-md text-ink-black block mb-stack-sm">Mode of Travel</label>
+<div class="grid grid-cols-4 gap-2 md:gap-4">
+<label class="mode-selector cursor-pointer">
+<input checked="" class="hidden" name="travel-mode" type="radio" value="bike">
+<div class="flex flex-col items-center justify-center p-3 md:p-4 border border-surface-dim rounded-lg bg-surface transition-all duration-200 hover:border-outline text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px] mb-1 transition-colors" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 400;">directions_bike</span>
+<span class="font-label-sm text-label-sm text-center">Bike</span>
+</div>
+</label>
+<label class="mode-selector cursor-pointer">
+<input class="hidden" name="travel-mode" type="radio" value="car">
+<div class="flex flex-col items-center justify-center p-3 md:p-4 border border-surface-dim rounded-lg bg-surface transition-all duration-200 hover:border-outline text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px] mb-1 transition-colors" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 400;">directions_car</span>
+<span class="font-label-sm text-label-sm text-center">Car</span>
+</div>
+</label>
+<label class="mode-selector cursor-pointer">
+<input class="hidden" name="travel-mode" type="radio" value="cab">
+<div class="flex flex-col items-center justify-center p-3 md:p-4 border border-surface-dim rounded-lg bg-surface transition-all duration-200 hover:border-outline text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px] mb-1 transition-colors" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 400;">taxi_alert</span>
+<span class="font-label-sm text-label-sm text-center">Cab</span>
+</div>
+</label>
+<label class="mode-selector cursor-pointer">
+<input class="hidden" name="travel-mode" type="radio" value="bus">
+<div class="flex flex-col items-center justify-center p-3 md:p-4 border border-surface-dim rounded-lg bg-surface transition-all duration-200 hover:border-outline text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px] mb-1 transition-colors" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 400;">directions_bus</span>
+<span class="font-label-sm text-label-sm text-center">Bus</span>
+</div>
+</label>
+</div>
+</section>
+<!-- 6. Detailed Info -->
+<section>
+<label class="font-label-md text-label-md text-ink-black block mb-stack-sm" for="trip-details">Detailed Description</label>
+<textarea class="w-full bg-surface border border-surface-dim rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-deep-navy focus:ring-1 focus:ring-deep-navy transition-colors placeholder:text-outline resize-none" id="trip-details" placeholder="Share itinerary details, expected costs, specific requirements (e.g., experienced rider needed), or anything else potential travel buddies should know." rows="5"></textarea>
+</section>
+<!-- Action Button -->
+<div class="pt-stack-md">
+<button class="w-full bg-deep-navy text-on-primary font-label-md text-label-md py-4 rounded-lg shadow-sm hover:bg-primary-container transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                    Post Trip
+                </button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-snow-white dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] shadow-lg fixed bottom-0 w-full rounded-t-xl z-50 flex justify-around items-center px-4 pb-4 pt-2 pb-safe">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Trips (Inactive) -->
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">directions_car</span>
+<span class="font-label-sm text-label-sm">Trips</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

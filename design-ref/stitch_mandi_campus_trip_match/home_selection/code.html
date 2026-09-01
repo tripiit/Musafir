@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IITM Share - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cc7457",
+                        "secondary-container": "#fdc003",
+                        "deep-navy": "#001F60",
+                        "secondary": "#785900",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444650",
+                        "secondary-fixed": "#ffdf9e",
+                        "ink-black": "#212529",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#6c5000",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-fixed": "#390b00",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#77321a",
+                        "primary-container": "#001f60",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "tertiary": "#250500",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7489ce",
+                        "snow-white": "#FFFFFF",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#00174c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#491100",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#000c32",
+                        "mountain-amber": "#FFC107",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#465b9d",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#2d4384",
+                        "asphalt-gray": "#6C757D",
+                        "surface-variant": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Open Sans"],
+                        "label-sm": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-mountain-amber selection:text-ink-black pb-24 md:pb-0 pt-16 md:pt-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-on-surface shadow-sm flex justify-between items-center px-margin-mobile h-16 md:hidden">
+<button class="p-2 text-deep-navy dark:text-primary-fixed hover:bg-surface-container-low transition-colors rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-md-mobile font-bold text-deep-navy dark:text-primary-fixed">TripMate IITM</h1>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<!-- Desktop Sidebar/Drawer (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col h-full w-80 bg-surface dark:bg-on-surface shadow-xl rounded-r-xl p-4 fixed left-0 top-0 bottom-0 z-40">
+<div class="flex items-center space-x-4 mb-8 pl-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait photography of a confident young university student standing outdoors on a bright sunny day. The lighting is natural and vibrant, highlighting a modern, approachable aesthetic suitable for a profile picture. The background features slightly blurred campus architecture and lush green trees, ensuring the subject remains the clear focal point." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe6i_k3mJdWmBXiA-y5Rvfm9LZCEc_cwzDHVYKscX2JKiBq7cnUrGoE5BaJgLqWplf98rEnD0gpf_xcuxp9IXhjny0GeiJLA9mCbU7EKijvlXK2EO6BWCnzIG1dX7wmFQcKuI2RDlfH3BPdGXOJbRWkERXMeZVUzrLpZgxeBhjCAguiZH3RgV8ZL-Vz8nYTZJ2L0IaaXQtJZ_ZZZkuhOoKJjvhPVEUbAi6V631Ipxbn5kWZTIgEn6A">
+<div>
+<h2 class="font-headline-md text-headline-md text-deep-navy dark:text-primary-fixed">IITM Student</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">@iitmandi.ac.in</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="list_alt">list_alt</span>
+<span class="font-label-md text-label-md">My Postings</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="history">history</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="shield">shield</span>
+<span class="font-label-md text-label-md">Safety Guidelines</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col justify-center items-center px-margin-mobile md:ml-80 max-w-7xl mx-auto w-full py-stack-lg">
+<div class="text-center mb-stack-lg md:mb-12">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-navy mb-stack-sm">Where are we heading?</h2>
+<p class="font-body-md text-body-md text-asphalt-gray max-w-lg mx-auto">Coordinate your travel to and from the IIT Mandi campus seamlessly.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter w-full max-w-4xl">
+<!-- Create Trip Card -->
+<button class="group relative flex flex-col items-center justify-center p-8 bg-snow-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300 active:scale-95 min-h-[280px] border border-surface-variant overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-deep-navy">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="z-10 bg-deep-navy text-on-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+</div>
+<div class="z-10 text-center">
+<h3 class="font-headline-md text-headline-md text-deep-navy mb-2">Create a Trip</h3>
+<p class="font-body-md text-body-md text-asphalt-gray">Add your own adventure</p>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary-fixed/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+</button>
+<!-- Browse Trips Card -->
+<button class="group relative flex flex-col items-center justify-center p-8 bg-snow-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300 active:scale-95 min-h-[280px] border border-surface-variant overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-mountain-amber">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary-fixed/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="z-10 bg-mountain-amber text-ink-black w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+</div>
+<div class="z-10 text-center">
+<h3 class="font-headline-md text-headline-md text-deep-navy mb-2">Browse Trips</h3>
+<p class="font-body-md text-body-md text-asphalt-gray">Find trips led by others</p>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-secondary-fixed/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-snow-white dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 hover:bg-surface-container-high transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all active:scale-95 duration-200 px-4 py-1 rounded-full" href="#"><span class="material-symbols-outlined">commute</span><span class="font-label-sm text-label-sm mt-1">Trips</span></a>
+<a class="flex flex-col items-center justify-center text-asphalt-gray dark:text-outline-variant hover:bg-surface-container-high transition-all active:scale-95 duration-200 px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+
+
+</body></html>
